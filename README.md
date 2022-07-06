@@ -1,5 +1,5 @@
 # computer_vision
 
 
-Refences
+Reference
 http://16385.courses.cs.cmu.edu/spring2022/
