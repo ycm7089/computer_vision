@@ -2,7 +2,8 @@
 
 import cv2
 import rospy
-
+import numpy as np
+from matplotlib import pyplot as plt
 
 def read():
     img1 = cv2.imread('/home/cm/catkin_ws/src/computer_vision/sonsational.jpg')
@@ -40,6 +41,16 @@ def read():
     cv2.imshow('image6', img6)
     print(channel)
     print(channel2)
+
+    # histogram using opencv
+    # hist = cv2.calcHist([img1],[0],None,[256],[0,256]) # imag1 : 입력이미지의 배열, 0 : 히스토그램을 얻을 채널 인덱스, None : Mask 이미지, 256 : X축 요소(BIN)갯수, 0,256 : Y축 요소 갯수
+    # cv2.imshow('hist',hist)
+
+    # histogram using numpy
+    # hist, bins = np.histogram(img1.ravel(),256,[0,256])
+
+    plt.hist(img1.ravel(),256,[0,256])
+    plt.show()
 
     # cv2.imshow('image2', img2)
     # cv2.imshow('image3', img3)
