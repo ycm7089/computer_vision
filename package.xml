@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>computer_vision</name>
+  <version>0.1.0</version>
+  <description>The YOLOv3 PyTorch ROS wrapper package</description>
+
+  <maintainer email="vvasilo@seas.upenn.edu">Vasileios Vasilopoulos</maintainer>
+  <maintainer email="pavlakos@seas.upenn.edu">Georgios Pavlakos</maintainer>
+
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>detection_msgs</build_depend>
+  <build_depend>message_filters</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>tf_conversions</build_depend>
+  <build_depend>actionlib</build_depend>
+  <build_depend>move_base_msgs</build_depend>
+
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>detection_msgs</build_export_depend>
+  <build_export_depend>pcl_ros</build_export_depend>
+  <build_export_depend>tf</build_export_depend>
+  <build_export_depend>tf_conversions</build_export_depend>
+  <build_export_depend>actionlib</build_export_depend>
+  <build_export_depend>move_base_msgs</build_export_depend>
+
+  <exec_depend>actionlib</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>detection_msgs</exec_depend>
+  <exec_depend>pcl_ros</exec_depend>
+  <exec_depend>move_base_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>tf_conversions</exec_depend>
+
+
+</package>
