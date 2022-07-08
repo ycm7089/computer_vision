@@ -44,23 +44,28 @@ def convolve2D(image, kernel, padding=0, strides=1):
 
     xOutput = int(((xImgShape - xKernShape + 2 * padding) / strides) + 1)
     yOutput = int(((yImgShape - yKernShape + 2 * padding) / strides) + 1)
+
+    print(xOutput) # 735
+    print(yOutput) # 622
+
     output = np.zeros((xOutput, yOutput))
 
     if padding !=0:
         imagePadded = np.zeros((image.shape[0] + padding * 2, image.shape[1] + padding * 2))
+        # print(imagePadded.shape[0]) # 737
         imagePadded[int(padding):int(-1 * padding), int(padding):int(-1 * padding)] = image
         print(imagePadded)
     else:
         imagePadded = image
 
     # Iterate through image
-    for y in range(image.shape[1]):
+    for y in range(image.shape[1]): # 620 번
         # Exit Convolution
         if y > image.shape[1] - yKernShape:
             break
         # Only Convolve if y has gone down by the specified Strides
         if y % strides == 0:
-            for x in range(image.shape[0]):
+            for x in range(image.shape[0]): # 733번
                 # Go to next row once kernel is out of bounds
                 if x > image.shape[0] - xKernShape:
                     break
