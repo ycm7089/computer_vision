@@ -13,18 +13,34 @@ def convolution(img):
     # son_img = processImage('Image.jpeg')
 
     kernel = np.array([[-1,-1,-1],[-1,8,-1],[-1,-1,-1]])
+    # kernel = np.array([[1,2,3],[4,5,6],[7,8,9]]) # 작동안함
+    # kernel = np.array([[1,0,-1],[1,0,-1],[1,0,-1]]) # 빨간색의 수직 윤곽선만 떼어내는 필터
+    # kernel = np.array([[0,0,0],[0,0,0],[0,0,0]]) # 초록색의 수직 윤곽선만 떼어내는 필터
+
     output = convolve2D(grey_img, kernel, padding=2)
+    # padding 이미지 데이터의 축소를 막기 위해, Edge pixel data를 충분히 활용하기 위해
+    # 참고 사이트 : https://egg-money.tistory.com/92
+
     # cv2.imwrite('ss', output)
+    cv2.imshow('origin',img)
+
     cv2.imshow('greyscale',output)
     cv2.waitKey(0)
 
 def convolve2D(image, kernel, padding=0, strides=1):
-    kernel = np.flipud(np.fliplr(kernel))
+    #stride : "1"칸씩 띄워서 계산하겠다!!!
 
-    xKernShape = kernel.shape[0]
-    yKernShape = kernel.shape[1]
-    xImgShape = image.shape[0]
-    yImgShape = image.shape[1]
+    kernel = np.flipud(np.fliplr(kernel)) # flipud : 축(위/아래)을 따라 요소의 순서를 반대로  fliplr : 왼쪽 오른쪽 방향으로 배열을 뒤집는다
+    print(padding)
+    xKernShape = kernel.shape[0]  # 3  kernel 3X3 matrix
+    yKernShape = kernel.shape[1] # 3
+    xImgShape = image.shape[0] #733
+    yImgShape = image.shape[1] #620
+    
+    print(yKernShape)
+    print(xKernShape)
+    print(xImgShape)
+    print(yImgShape)
 
     xOutput = int(((xImgShape - xKernShape + 2 * padding) / strides) + 1)
     yOutput = int(((yImgShape - yKernShape + 2 * padding) / strides) + 1)
